@@ -40,6 +40,8 @@ INSTALLED_APPS = [
     
     # Add Django REST Framework
     'rest_framework',
+    # Add token authentication
+    'rest_framework.authtoken',  
     # API app
     'api',
 ]
@@ -126,3 +128,14 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+# REST_FRAMEWORK - Configurations.
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.TokenAuthentication',  # Enable token authentication
+    ],
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.IsAuthenticated',  # Set default permission to require authentication
+    ],
+}
